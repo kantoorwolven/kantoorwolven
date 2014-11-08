@@ -1,5 +1,1 @@
-Drink!
-
-{{#if something}}
-BIER!
-{{/if}}
+<img src="img/SplashWolf.gif" height=568 width=320/>

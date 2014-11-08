@@ -25,7 +25,7 @@
         var zis = this;
         var game = {
             name: this.params.name,
-            num_players: this.params.player_number,
+            max_players: this.params.player_number,
             start_time: this.params.start_time
         };
         

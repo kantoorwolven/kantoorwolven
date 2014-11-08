@@ -10,5 +10,7 @@ Sammy('#main', function() {
             email: this.params.email
         };
         localStorage.setItem("kantoorwolven.player", JSON.stringify(player));
+        
+        this.redirect("#/pick_game");
     });
-});
+});     

@@ -7,7 +7,7 @@
 
         <div class="pure-control-group">
             <label for="email">Email adres</label>
-            <input id="email" type="email" placeholder="Aantal spelers" name="email">
+            <input id="email" type="email" placeholder="Email adres" name="email">
         </div>
         
         <div class="pure-controls">
