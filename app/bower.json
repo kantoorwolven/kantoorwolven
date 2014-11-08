@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "handlebars": "~2.0.0",
-    "sammy": "~0.7.6"
+    "sammy": "~0.7.6",
+    "modernizr": "~2.8.3"
   }
 }
