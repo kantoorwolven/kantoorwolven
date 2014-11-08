@@ -1,14 +1,14 @@
 class PlayersController < ApplicationController
-
-  skip_before_action :verify_authenticity_token, if: :json_request?
-  respond_to :json
-
   def index
     respond_with game.players
   end
 
   def create
     respond_with game.players.create(player_params)
+  end
+
+  def show
+    respond_with type: Player.find_by(email: params[:email]).type
   end
 
   private

@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   before_filter :cors_preflight_check
   after_filter :cors_set_access_control_headers
 
+  skip_before_action :verify_authenticity_token, if: :json_request?
+
+  respond_to :json
+
   # For all responses in this controller, return the CORS access control headers.
   def cors_set_access_control_headers
     headers['Access-Control-Allow-Origin'] = '*'

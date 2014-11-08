@@ -3,11 +3,11 @@ class GamesController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Game.all, include: [:players ]
+    respond_with Game.all, include: [:players]
   end
 
   def show
-    respond_with Game.find(params[:id]), include: [:players, :rounds ]
+    respond_with Game.find(params[:id]), include: [:players, :rounds]
   end
 
   def create
