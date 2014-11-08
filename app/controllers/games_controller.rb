@@ -7,7 +7,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    respond_with Game.find(params[:id])
+    respond_with Game.find(params[:id]), include: :players
   end
 
   def create
