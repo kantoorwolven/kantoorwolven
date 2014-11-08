@@ -32,7 +32,7 @@
             {{/if}}
             <div class="pure-u-1-5"></div>  
             <div class="pure-u-3-5">
-            {{deadline}}
+            Nog {{deadline}} seconden..
             </div>
             <div class="pure-u-1-5"></div>
         {{/with}}

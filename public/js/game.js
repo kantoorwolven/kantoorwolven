@@ -13,19 +13,29 @@ Sammy('#main', function() {
             zis.currentRound = data.rounds.filter(function(r) {
                 return r.active;   
             })[0];
-                        
-            $.getJSON("/player?email=" + zis.player.email).then(function(data){ 
+            
+            $.getJSON("/rounds/" + zis.currentRound.id).then(function (data) {
+                zis.currentRound.type = data.type;
+                return;
+            }).then(function() {         
+                return $.getJSON("/player?email=" + player.email);
+            }).then(function(data){ 
                 zis.canVote = (data.type == "Wherewolf" && zis.currentRound.type == "Night") || zis.currentRound.type == "Day";
+                return;
+            }).then(function() {          
+                if (zis.canVote) {
+                    
+                    zis.currentRound.votees = 
+                    [
+                        { name: "Piet", votes: 10, game_id: data.id, id: 2 },
+                        { name: "Piet", votes: 10, game_id: data.id, id: 2 }
+                    ];
+                }
+                
+                zis.deadline = (Date.parse(data.deadline).getTime() - new Date().getTime())/1000;
+                zis.nightOrDay = zis.currentRound.type.toLowerCase();
+                zis.partial('templates/game.hb');
             });
-            
-            zis.currentRound.votees = [
-                { name: "Piet", votes: 10, game_id: data.id, id: 2 },
-                { name: "Piet", votes: 10, game_id: data.id, id: 2 }
-            ];
-            
-            zis.currentRound.deadline = new Date().toTimeString();
-            zis.nightOrDay = 'night';
-            zis.partial('templates/game.hb');
         };
         $.getJSON("/games/" + this.params.id + ".json").then(function(data) {
             var joined = data.players.some(function(p) { return p.email == player.email; });
