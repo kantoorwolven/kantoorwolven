@@ -1,0 +1,2 @@
+class Day < Round
+end

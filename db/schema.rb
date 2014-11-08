@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108162807) do
+ActiveRecord::Schema.define(version: 20141108185642) do
 
   create_table "games", force: true do |t|
     t.string   "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141108162807) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deadline"
+    t.boolean  "active"
   end
 
   add_index "rounds", ["game_id"], name: "index_rounds_on_game_id"
