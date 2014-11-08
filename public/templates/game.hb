@@ -1,5 +1,9 @@
 Spel!
     
+{{#if message}}
+    <div class="button-error">{{message}}</div>
+{{/if}}
+
 {{name}}
 
 Players:

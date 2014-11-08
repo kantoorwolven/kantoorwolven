@@ -7,7 +7,7 @@ Sammy('#main', function() {
     this.post("#/create_player", function() {
         var player = {
             name: this.params.name,
-            email: this.params.email
+            email: this.params.email,
         };
         localStorage.setItem("kantoorwolven.player", JSON.stringify(player));
         
