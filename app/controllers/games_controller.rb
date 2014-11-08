@@ -8,6 +8,11 @@ class GamesController < ApplicationController
     respond_with @games
   end
 
+  def show
+    @game = Game.find(params[:id])
+    respond_with @game
+  end
+
   def create
     @game = Game.create game_params
     respond_with @game
