@@ -49,6 +49,7 @@ gem 'haml'
 gem 'foundation-rails'
 gem 'rails_12factor'
 gem 'chronic'
+gem 'faker'
 
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'

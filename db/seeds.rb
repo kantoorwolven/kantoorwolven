@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+games = Game.create [
+  {name: 'Launch Cafe',   starttime: Chronic.parse('sunday 17:30'), max_players: 30},
+  {name: 'Het Kasteel',   starttime: Chronic.parse('sunday 17:30'), max_players: 100},
+  {name: 'De Uurwerker',  starttime: Chronic.parse('sunday 17:30'), max_players: 50},
+  {name: 'Doppio',        starttime: Chronic.parse('sunday 17:30'), max_players: 50},
+  {name: 'Black & Bloom', starttime: Chronic.parse('sunday 17:30'), max_players: 50}
+]
+
+
+games[1].max_players.times do
+  games[1].players.create name: Faker::Name.name, email: Faker::Internet.email
+end
+
+games[1].build_rounds_without_skips

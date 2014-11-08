@@ -8,20 +8,22 @@ class Game < ActiveRecord::Base
       next if game.rounds.any?
       next if game.players.size < 8
       next if Time.zone.now < game.starttime
-      rounds = game.players.size - 2
-      now = Time.zone.now
-      day = now.day
+      game.build_rounds_without_skips
+    end
+  end
 
-      rounds.times do |round|
-        day = day + 1 if round.odd?
-        day = day + 1 if 
-        hour   = round.even? ? 22 : 16
-        minute = round.even? ? 0  : 30
-        type   = round.even? ? 'Night' : 'Day'
-        game.rounds.create deadline: Time.new(now.year, now.month, day, hour, minute, 0),
-                           active:   round == 0,
-                           type:     type
-      end
+  def build_rounds_without_skips
+    rounds = self.players.size - 2
+    now = Time.zone.now
+    day = now.day
+
+    rounds.times do |round|
+      hour   = round.even? ? 22 : 16
+      minute = round.even? ? 0  : 30
+      type   = round.even? ? 'Night' : 'Day'
+      time   = Time.new(now.year, now.month, day, hour, minute, 0)
+      time   = time + 1.day if round.odd?
+      self.rounds.create! deadline: time, active: round == 0, type: type
     end
   end
 end
