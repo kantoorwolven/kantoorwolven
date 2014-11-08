@@ -1,22 +1,21 @@
 Sammy('#main', function() {
+    this.use('Handlebars', 'hb');
+}).run();
+
+
+Sammy('#main', function() {    
     
     var full = location.protocol+'//'+location.hostname;
-    var port = (location.port ? ':'+location.port: '');
+    this.get("#/create_player", function() {
+        this.partial('templates/create_player.hb');
+    });
     
-    this.use('Handlebars', 'hb');
-    
-    this.get('/', function() {
-        var zis = this;
-        this.something = true;
-        this.title = 'Hello!';
-        this.name = this.params.name;
-        
-        // render the template and pass it through handlebars
-        this.partial('templates/home.hb');
-        
-        setTimeout(function() {
-            zis.redirect('#/pick_game');
-        }, 1000);
+    this.post("#/create_player", function() {
+        var player = {
+            name: this.params.name,
+            email: this.params.email
+        };
+        localStorage.setItem("kantoorwolven.player", player);
     });
     
     this.get("#/pick_game", function () {
@@ -56,7 +55,7 @@ Sammy('#main', function() {
             num_players: this.params.player_number,
             start_time: this.params.start_time
         };
-
+        
         $.ajax({
             type: "POST",
             url: full + ":3000" + "/games.json",
@@ -64,7 +63,17 @@ Sammy('#main', function() {
             contentType: 'application/json',
             dataType: 'json'
         }).then(function(data) {
-            zis.redirect('#/game/' + data.id);
+            localStorage.setItem("kantoorwolven.current.game", data.id);
+            game = data;
+            return $.ajax({
+                type: "POST",
+                url: full + ":3000" + "/games/" + data.id + "/players",
+                contentType: "application/json",
+                data: JSON.stringify(localStorage.getItem("kantoorwolven.player")),
+                dataType: "json"
+            });
+        }).then(function(){
+            zis.redirect('#/game/' + game.id);
         });
     });
     
@@ -72,8 +81,7 @@ Sammy('#main', function() {
         var zis = this;
         $.getJSON(full + ":3000" + "/games/" + this.params.id + ".json").then(function(data) {
             zis.name = data.name;
+            zis.partial('templates/game.hb');
         });
-        
-        this.partial('templates/game.hb');
     });
-}).run();
+});
