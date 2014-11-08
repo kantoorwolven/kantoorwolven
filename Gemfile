@@ -42,3 +42,5 @@ gem 'spring',        group: :development
 
 gem 'haml'
 gem 'foundation-rails'
+
+ruby "2.1.3"
