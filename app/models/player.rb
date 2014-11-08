@@ -1,12 +1,12 @@
 class Player < ActiveRecord::Base
   # Associations
   belongs_to :game
-  # has_many :votings
 
   before_create do |player|
-    # game = player.game
-    # if game.players.count > game.max_players
-    #
-    # end
+    player.type = choose_a_type
+  end
+
+  def choose_a_type
+    ['Werewolf', 'Villager', 'Villager', 'Villager'].sample
   end
 end
