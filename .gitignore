@@ -37,5 +37,5 @@ build/
 log/*
 /config/database.yml
 /config/secrets.yml
-/app/controllers/bower_components
+/public/bower_components
 node_modules/
