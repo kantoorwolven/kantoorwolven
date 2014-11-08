@@ -1,14 +1,20 @@
-Spel!
-    
+<div class="{{nightOrDay}}">
+
+{{name}}
+
 {{#if message}}
     <div class="button-error">{{message}}</div>
 {{/if}}
 
-{{name}}
+{{#with currentRound}}
+    {{#if canVote}}
+        {{#each votees}}
+        <form action="#/vote">
+            <input type="button" value="{{name}} {{votes}}" class="pure-button"/>
+        </form>
+        {{/each}}
+    {{/if}}
+    {{deadline}}
+{{/with}}
 
-Players:
-<ul>
-{{#each players}}
-    <li>{{name}}</li>
-{{/each}}
-</ul>
+</div>

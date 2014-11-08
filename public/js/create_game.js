@@ -1,6 +1,4 @@
  Sammy('#main', function () {
-     var full = location.protocol+'//'+location.hostname;
-    
      this.get('#/create_game', function () {
         var today = new Date();
         var day = new Date();
@@ -11,12 +9,12 @@
          
         this.starttime = [];
         if (today.getHours() <= 16 && today.getMinutes() <= 30) {
-            this.starttime.push({ value: "vandaag om 16:30", id : day.getTime() });
+            this.starttime.push({ value: "vandaag om 17:30", id : day.getTime() });
         }
         day.setDate(day.getDate() + 1);
-        this.starttime.push({ value: "morgen om 16:30", id : day.getTime() });
+        this.starttime.push({ value: "morgen om 17:30", id : day.getTime() });
         day.setDate(day.getDate() + 2);
-        this.starttime.push({ value: "overmorgen om 16:30", id : day.getTime() });
+        this.starttime.push({ value: "overmorgen om 17:30", id : day.getTime() });
         
         this.partial('templates/create_game.hb');
     });
@@ -31,7 +29,7 @@
         
         $.ajax({
             type: "POST",
-            url: full + ":3000" + "/games.json",
+            url: "/games.json",
             data: JSON.stringify(game),
             contentType: 'application/json',
             dataType: 'json'
@@ -40,7 +38,7 @@
             game = data;
             return $.ajax({
                 type: "POST",
-                url: full + ":3000" + "/games/" + data.id + "/players",
+                url: "/games/" + data.id + "/players",
                 contentType: "application/json",
                 data: localStorage.getItem("kantoorwolven.player"),
                 dataType: "json"

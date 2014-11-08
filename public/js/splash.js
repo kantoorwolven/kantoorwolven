@@ -1,4 +1,3 @@
-
 Sammy('#main', function() {
     
     this.get('/', function() {
