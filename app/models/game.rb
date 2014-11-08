@@ -1,9 +1,9 @@
 class Game < ActiveRecord::Base
   # Associations
+  has_many :rounds
   has_many :players
 
-  after_create do |game|
-    # return if game.rounds.any?
-    # game.rounds.create
+  before_create do |game|
+    game.rounds.build
   end
 end

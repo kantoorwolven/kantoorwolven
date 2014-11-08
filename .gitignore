@@ -35,6 +35,7 @@ build/
 
 /db/*.sqlite3
 log/*
+/config/database.yml
 /config/secrets.yml
 /app/controllers/bower_components
 node_modules/

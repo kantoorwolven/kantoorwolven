@@ -4,13 +4,11 @@ class PlayersController < ApplicationController
   respond_to :json
 
   def index
-    @players = game.players
-    respond_with @players
+    respond_with game.players
   end
 
   def create
-    @player = game.players.create player_params
-    respond_with @player
+    respond_with game.players.create(player_params)
   end
 
   private

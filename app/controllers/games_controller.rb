@@ -1,21 +1,17 @@
 class GamesController < ApplicationController
-
   skip_before_action :verify_authenticity_token, if: :json_request?
   respond_to :json
 
   def index
-    @games = Game.all
-    respond_with @games
+    respond_with Game.all
   end
 
   def show
-    @game = Game.find(params[:id])
-    respond_with @game
+    respond_with Game.find(params[:id])
   end
 
   def create
-    @game = Game.create game_params
-    respond_with @game
+    respond_with Game.create(game_params)
   end
 
   private

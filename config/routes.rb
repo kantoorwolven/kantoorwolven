@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   # root 'welcome#index'
 
+  # get  'games' => 'games#index'
+  # post 'games' => 'games#create', via: [:post, :options]
+  # post 'show'  => 'games#create', via: [:post, :options]
+
   resources :games, only: [:create, :index, :show] do
     resources :players,    only: [:index, :create, :show]
     resources :werewolves, only: [:index, :create, :show]
