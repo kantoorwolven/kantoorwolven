@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'players/index'
+
+  get 'players/create'
+
   # root 'welcome#index'
 
-  resources :games, only: [:create, :index, :show]
+  resources :games, only: [:create, :index, :show] do
+    resources :players,    only: [:index, :create, :show]
+    resources :werewolves, only: [:index, :create, :show]
+    resources :villagers,  only: [:index, :create, :show]
+  end
+
+  resources :players, only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

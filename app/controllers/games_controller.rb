@@ -18,8 +18,4 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:name)
   end
-
-  def json_request?
-    request.format.json?
-  end
 end
