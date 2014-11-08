@@ -92,3 +92,85 @@ Migrating to CreateVotings (20141108085459)
             FROM sqlite_temp_master
             WHERE name='index_votings_on_round_id' AND type='index'
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateVotings (20141108085459)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "votings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "round_id" integer, "voter_id" integer, "voted_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_votings_on_round_id" ON "votings" ("round_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votings_on_round_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votings_on_round_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_votings_on_voter_id" ON "votings" ("voter_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votings_on_voter_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votings_on_voter_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votings_on_round_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votings_on_round_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_votings_on_voted_id" ON "votings" ("voted_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141108085459"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_players_on_game_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_players_on_game_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_rounds_on_game_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_rounds_on_game_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votings_on_voted_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votings_on_voted_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votings_on_voter_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votings_on_voter_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votings_on_round_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votings_on_round_id' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-08 10:05:43 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/ivan/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/railties-4.1.7/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 19ms (Views: 9.2ms | ActiveRecord: 0.0ms)
