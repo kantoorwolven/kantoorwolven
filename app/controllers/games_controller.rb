@@ -1,7 +1,4 @@
 class GamesController < ApplicationController
-  skip_before_action :verify_authenticity_token, if: :json_request?
-  respond_to :json
-
   def index
     respond_with Game.all, include: [:players]
   end

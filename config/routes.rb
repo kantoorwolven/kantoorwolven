@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :villagers,  only: [:index, :create, :show]
 
     resources :rounds, only: [] do
-      resources :votings, only: [:create]
+      resources :votings, only: [:index, :create]
     end
   end
 

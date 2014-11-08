@@ -1,6 +1,7 @@
 class VotingsController < ApplicationController
-  skip_before_action :verify_authenticity_token, if: :json_request?
-  respond_to :json
+  def index
+    respond_with round.votings
+  end
 
   def create
     respond_with round.votings.create(votings_params)
