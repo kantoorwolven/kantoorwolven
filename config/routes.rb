@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'players/index'
-
-  get 'players/create'
 
   # root 'welcome#index'
 
