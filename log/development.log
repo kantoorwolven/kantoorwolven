@@ -651,3 +651,89 @@ Processing by GamesController#create as JSON
   [1m[35mSQL (0.4ms)[0m  INSERT INTO "games" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-08 09:21:48.408260"], ["name", "hello"], ["updated_at", "2014-11-08 09:21:48.408260"]]
   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
 Completed 201 Created in 11ms (Views: 1.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:27 +0100
+Processing by GamesController#index as JSON
+  [1m[35mGame Load (0.3ms)[0m  SELECT "games".* FROM "games"
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:31 +0100
+Processing by GamesController#index as JSON
+  [1m[36mGame Load (0.3ms)[0m  [1mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:39 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GamesController#index as JSON
+  [1m[35mGame Load (0.1ms)[0m  SELECT "games".* FROM "games"
+Completed 200 OK in 23ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:39 +0100
+Processing by GamesController#index as JSON
+  [1m[36mGame Load (0.3ms)[0m  [1mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:39 +0100
+Processing by GamesController#index as JSON
+  [1m[35mGame Load (0.1ms)[0m  SELECT "games".* FROM "games"
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:39 +0100
+Processing by GamesController#index as JSON
+  [1m[36mGame Load (0.2ms)[0m  [1mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:40 +0100
+Processing by GamesController#index as JSON
+  [1m[35mGame Load (0.1ms)[0m  SELECT "games".* FROM "games"
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:40 +0100
+Processing by GamesController#index as JSON
+  [1m[36mGame Load (0.2ms)[0m  [1mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:40 +0100
+Processing by GamesController#index as JSON
+  [1m[35mGame Load (0.1ms)[0m  SELECT "games".* FROM "games"
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:40 +0100
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:40 +0100
+Processing by GamesController#index as JSON
+  [1m[36mGame Load (0.3ms)[0m  [1mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GamesController#index as JSON
+  [1m[35mGame Load (0.1ms)[0m  SELECT "games".* FROM "games"
+Completed 200 OK in 21ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:40 +0100
+Processing by GamesController#index as JSON
+  [1m[36mGame Load (0.1ms)[0m  [1mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/games.json" for undefined at 2014-11-08 10:27:40 +0100
+Processing by GamesController#index as JSON
+  [1m[35mGame Load (0.1ms)[0m  SELECT "games".* FROM "games"
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/games.json" for 127.0.0.1 at 2014-11-08 10:27:44 +0100
+Processing by GamesController#index as JSON
+  [1m[36mGame Load (0.2ms)[0m  [1mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms)
