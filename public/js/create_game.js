@@ -8,7 +8,7 @@
 
          
         this.starttime = [];
-        if (today.getHours() <= 16 && today.getMinutes() <= 30) {
+        if (today.getHours() < 16 || (today.getHours() === 16 && today.getMinutes() <= 30)) {
             this.starttime.push({ value: "vandaag om 17:30", id : day.getTime() });
         }
         day.setDate(day.getDate() + 1);
