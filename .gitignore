@@ -38,3 +38,4 @@ log/*
 
 /config/database.yml
 /config/secrets.yml
+/app/controllers/bower_components
