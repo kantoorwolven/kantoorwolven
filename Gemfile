@@ -42,5 +42,6 @@ gem 'spring',        group: :development
 
 gem 'haml'
 gem 'foundation-rails'
+gem 'rack-cors', :require => 'rack/cors'
 
 ruby "2.1.3"
