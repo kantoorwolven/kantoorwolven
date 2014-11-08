@@ -1,6 +1,4 @@
 class GamesController < ApplicationController
-  before_filter :create_rounds, only: [:show]
-
   skip_before_action :verify_authenticity_token, if: :json_request?
   respond_to :json
 
