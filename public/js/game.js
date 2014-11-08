@@ -10,11 +10,14 @@ Sammy('#main', function() {
                 return p.email == player.email;
             })[0].id;
             
-            zis.currentRound = data.rounds.sort(function(l, r) {
-                return r.id - l.id;                
+            zis.currentRound = data.rounds.filter(function(r) {
+                return r.active;   
             })[0];
+                        
+            $.getJSON("/player?email=" + zis.player.email).then(function(data){ 
+                zis.canVote = (data.type == "Wherewolf" && zis.currentRound.type == "Night") || zis.currentRound.type == "Day";
+            });
             
-            zis.currentRound.canVote = true;
             zis.currentRound.votees = [
                 { name: "Piet", votes: 10, game_id: data.id, id: 2 },
                 { name: "Piet", votes: 10, game_id: data.id, id: 2 }
