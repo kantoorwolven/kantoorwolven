@@ -1,3 +1,30 @@
 .night {
-    background-image: url("img/night_back_ground.png")
+    background-image: url("/img/BGNight.png");
+    height: 568px;
+    width: 320px;
+}
+
+.twilight {
+    background-image: url("/img/SchemerBG.png");
+    height: 568px;
+    width: 320px;
+}
+
+h1 {
+    font-family: 'Crushed', cursive;
+    color: #fff;
+    text-align: center;
+}
+
+body {
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.first {
+    margin-top: 120px;
+}
+
+.margin {
+    margin-top: 20px;
 }

@@ -5,13 +5,19 @@ Sammy('#main', function() {
         var draw = function (data) {
             zis.name = data.name;
             zis.players = data.players;
+            
+            zis.player_id = zis.players.filter(function(p) {
+                return p.email == player.email;
+            })[0].id;
+            
             zis.currentRound = data.rounds.sort(function(l, r) {
                 return r.id - l.id;                
             })[0];
             
             zis.currentRound.canVote = true;
             zis.currentRound.votees = [
-                { name: "Piet", votes: 10 }
+                { name: "Piet", votes: 10, game_id: data.id, id: 2 },
+                { name: "Piet", votes: 10, game_id: data.id, id: 2 }
             ];
             
             zis.currentRound.deadline = new Date().toTimeString();

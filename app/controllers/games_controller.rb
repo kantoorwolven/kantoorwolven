@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Game.all
+    respond_with Game.all, include: [:players ]
   end
 
   def show
@@ -17,6 +17,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name)
+    params.require(:game).permit(:name, :max_players)
   end
 end

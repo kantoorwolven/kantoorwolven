@@ -1,20 +1,38 @@
 <div class="{{nightOrDay}}">
-
-{{name}}
-
-{{#if message}}
-    <div class="button-error">{{message}}</div>
-{{/if}}
-
-{{#with currentRound}}
-    {{#if canVote}}
-        {{#each votees}}
-        <form action="#/vote">
-            <input type="button" value="{{name}} {{votes}}" class="pure-button"/>
-        </form>
-        {{/each}}
-    {{/if}}
-    {{deadline}}
-{{/with}}
-
+    <div class="pure-g">
+        <div class="pure-u-1-5"></div>
+        <div class="pure-u-3-5"><h1>{{name}}</h1></div>
+        <div class="pure-u-1-5"></div>
+    </div>
+    <div class="pure-g margin">
+        {{#if message}}
+            <div class="pure-u-1-5"></div>
+            <div class="pure-button-error">{{message}}</div>
+            <div class="pure-u-1-5"></div>
+        {{/if}}
+    </div>
+    <div class="pure-g first ">
+        {{#with currentRound}}
+            {{#if canVote}}
+                {{#each votees}}
+                    <div class="pure-u-1-5"></div>  
+                    <div class="pure-u-3-5">
+                    <form action="#/vote" method="post">
+                        <input type="hidden" value="{{game_id}}" name="game_id"/>
+                        <input type="hidden" value="{{../id}}" name="round_id"/>
+                        <input type="hidden" value="{{../../../player_id}}" name="player_id"/>
+                        <input type="hidden" value="{{id}}" name="voted_id"/>
+                        <input type="submit" value="{{name}} {{votes}}" class="pure-button pure-u-1"/>
+                    </form>
+                    </div>
+                    <div class="pure-u-1-5"></div>
+                {{/each}}
+            {{/if}}
+            <div class="pure-u-1-5"></div>  
+            <div class="pure-u-3-5">
+            {{deadline}}
+            </div>
+            <div class="pure-u-1-5"></div>
+        {{/with}}
+    </div>
 </div>
