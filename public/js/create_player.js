@@ -1,6 +1,5 @@
 Sammy('#main', function() {    
     
-    var full = location.protocol+'//'+location.hostname;
     this.get("#/create_player", function() {
         this.partial('templates/create_player.hb');
     });
@@ -10,6 +9,6 @@ Sammy('#main', function() {
             name: this.params.name,
             email: this.params.email
         };
-        localStorage.setItem("kantoorwolven.player", player);
+        localStorage.setItem("kantoorwolven.player", JSON.stringify(player));
     });
 });

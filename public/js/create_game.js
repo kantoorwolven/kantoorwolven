@@ -42,7 +42,7 @@
                 type: "POST",
                 url: full + ":3000" + "/games/" + data.id + "/players",
                 contentType: "application/json",
-                data: JSON.stringify(localStorage.getItem("kantoorwolven.player")),
+                data: localStorage.getItem("kantoorwolven.player"),
                 dataType: "json"
             });
         }).then(function(){
