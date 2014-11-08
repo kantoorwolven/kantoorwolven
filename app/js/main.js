@@ -16,16 +16,15 @@ Sammy('#main', function() {
         }, 1000);
     });
     
-    // define a 'get' route that will be triggered at '#/path'
-    this.get('#/', function() {
-          this.title = 'Hello!';
-          this.name = this.params.name;
-          // render the template and pass it through handlebars
-          this.partial('templates/home.hb');
-    });
+//    // define a 'get' route that will be triggered at '#/path'
+//    this.get('#/', function() {
+//          this.title = 'Hello!';
+//          this.name = this.params.name;
+//          // render the template and pass it through handlebars
+//          this.partial('templates/home.hb');
+//    });
     
     this.get("#/pick_game", function () {
-        this.$element()
-            .html('pick_game');
+        
     });
 }).run();
