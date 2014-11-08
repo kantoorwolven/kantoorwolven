@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
-gem 'pg', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,8 +27,15 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+group :development do
+  gem 'sqlite3'
+end
+
 # Use unicorn as the app server
-# gem 'unicorn'
+group :production do
+  gem 'unicorn'
+  gem 'pg'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -42,5 +46,6 @@ gem 'spring',        group: :development
 
 gem 'haml'
 gem 'foundation-rails'
+gem 'rails_12factor'
 
-ruby "2.1.3"
+ruby '2.1.3'
