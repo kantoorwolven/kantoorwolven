@@ -11,11 +11,18 @@ Rails.application.routes.draw do
     resources :players,    only: [:index, :create, :show]
     resources :werewolves, only: [:index, :create, :show]
     resources :villagers,  only: [:index, :create, :show]
+
+    resources :rounds, only: [] do
+      resources :votings, only: [:create]
+    end
   end
+
+
 
   resources :players,    only: [:show]
   resources :villagers,  only: [:show]
   resources :werewolves, only: [:show]
+  resources :votings,    only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
