@@ -4,11 +4,11 @@ class PlayersController < ApplicationController
   end
 
   def create
-    respond_with game.players.create(player_params)
+    respond_with game.players.create!(player_params)
   end
 
   def show
-    respond_with type: Player.find_by(email: params[:email]).type
+    respond_with type: Player.find_by!(email: params[:email]).type
   end
 
   private
