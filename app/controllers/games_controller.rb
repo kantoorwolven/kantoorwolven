@@ -8,7 +8,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    respond_with Game.create(game_params)
+    respond_with Game.create!(game_params)
   end
 
   private

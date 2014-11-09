@@ -6,4 +6,6 @@ class Voting < ActiveRecord::Base
 
   # Validations
   validates :voter_id, uniqueness: {scope: [:round_id, :voted_id]}
+  validates :voter_id, presence: true
+  validates :voted_id, presence: true
 end
