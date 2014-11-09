@@ -20,7 +20,11 @@ Sammy('#main', function() {
                     type: 'twilight',
                     canVote: false
                 };
-                zis.partial('templates/game.hb');
+                zis.nightOrDay = zis.currentRound.type.toLowerCase();
+                $.getJSON("/games/" + zis.currentRound.game_id  + "/player?email=" + player.email).then(function() {
+                    zis.playerType = data.type == "Villager" ? "dorpeling" : "weerwolf";
+                    zis.partial('templates/game.hb');    
+                });
             } else {
                 zis.gameStarted = true;
                 $.getJSON("/rounds/" + zis.currentRound.id).then(function (data) {
