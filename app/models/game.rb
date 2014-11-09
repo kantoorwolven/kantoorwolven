@@ -5,10 +5,6 @@ class Game < ActiveRecord::Base
   has_many :werewolves
   has_many :villagers
 
-  def starttime=(seconds)
-    Time.at(seconds).to_datetime
-  end
-
   def self.activate_rounds
     Game.all.each do |game|
       if game.rounds.active.empty?
