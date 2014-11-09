@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :werewolves, only: [:show]
   resources :votings,    only: [:show]
 
-  get 'player' => 'players#show'
+  get 'games/:game_id/player' => 'players#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

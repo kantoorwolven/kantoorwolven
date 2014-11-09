@@ -8,7 +8,8 @@ class PlayersController < ApplicationController
   end
 
   def show
-    respond_with type: Player.find_by!(email: params[:email]).type
+    game = Game.find(params[:game_id])
+    respond_with type: game.players.find_by!(email: params[:email]).type
   end
 
   private
