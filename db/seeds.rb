@@ -1,9 +1,9 @@
 games = Game.create [
-  {name: 'Launch Cafe',   starttime: Chronic.parse('sunday 17:30'), max_players: 30},
-  {name: 'Het Kasteel',   starttime: Chronic.parse('sunday 17:30'), max_players: 100},
-  {name: 'De Uurwerker',  starttime: Chronic.parse('sunday 17:30'), max_players: 50},
-  {name: 'Doppio',        starttime: Chronic.parse('sunday 17:30'), max_players: 50},
-  {name: 'Black & Bloom', starttime: Chronic.parse('sunday 17:30'), max_players: 50}
+  {name: 'Launch Cafe',   starttime: Chronic.parse('today 17:30'), max_players: 30},
+  {name: 'Het Kasteel',   starttime: Chronic.parse('today 17:30'), max_players: 100},
+  {name: 'De Uurwerker',  starttime: Chronic.parse('today 17:30'), max_players: 50},
+  {name: 'Doppio',        starttime: Chronic.parse('today 17:30'), max_players: 50},
+  {name: 'Black & Bloom', starttime: Chronic.parse('today 17:30'), max_players: 50}
 ]
 
 
