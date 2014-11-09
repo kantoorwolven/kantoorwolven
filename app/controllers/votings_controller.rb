@@ -4,7 +4,9 @@ class VotingsController < ApplicationController
   end
 
   def create
-    respond_with round.votings.create(votings_params)
+    voting = round.votings.find_or_create_by voter_id: votings_params[:voter_id]
+    voting.update voted_id: votings_params[:voted_id]
+    respond_with voting
   end
 
   private
