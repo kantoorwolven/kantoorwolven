@@ -8,7 +8,7 @@ games = Game.create [
 
 
 games.each do |game|
-  game.max_players.times do
+  (30..game.max_players).to_a.sample.times do
     game.players.create name: Faker::Name.name, email: Faker::Internet.email
     game.build_rounds_without_skips
   end
