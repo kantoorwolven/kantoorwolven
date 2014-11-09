@@ -20,19 +20,16 @@ Sammy('#main', function() {
             }).then(function() {         
                 return $.getJSON("/player?email=" + player.email);
             }).then(function(data){ 
-                zis.canVote = (data.type == "Wherewolf" && zis.currentRound.type == "Night") || zis.currentRound.type == "Day";
+                zis.canVote = (data.type == "Werewolf" && zis.currentRound.type == "Night") || zis.currentRound.type == "Day";
                 return;
             }).then(function() {          
                 if (zis.canVote) {
-                    
-                    zis.currentRound.votees = 
-                    [
-                        { name: "Piet", votes: 10, game_id: data.id, id: 2 },
-                        { name: "Piet", votes: 10, game_id: data.id, id: 2 }
-                    ];
+                    zis.currentRound.votees = zis.players.map (function (p) {
+                        return { name: p.name, votes: 10, game_id: data.id, id: p.id }; 
+                    });
                 }
                 
-                zis.deadline = (Date.parse(data.deadline).getTime() - new Date().getTime())/1000;
+                zis.currentRound.deadline = (Date.parse(zis.currentRound.deadline) - new Date().getTime()) / 1000;
                 zis.nightOrDay = zis.currentRound.type.toLowerCase();
                 zis.partial('templates/game.hb');
             });
