@@ -24,7 +24,7 @@
         var game = {
             name: this.params.name,
             max_players: this.params.player_number,
-            starttime: this.params.start_time
+            starttime: new Date(parseInt(this.params.start_time, 10)).toUTCString()
         };
         
         $.ajax({
