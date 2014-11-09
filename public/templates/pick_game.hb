@@ -29,25 +29,29 @@
             <div class="pure-u-1-5"></div>
         </div>
         {{#each games}}
+            {{#if canJoin}}
             <div class="pure-g margin">
                 <div class="pure-u-1-5"></div>
-                {{#if canJoin}}
-                    <div class="pure-u-3-5">
-                        <a href="#/game/{{id}}">
-                            <button class="pure-button addshadow pure-u-1">{{name}} {{players.length}}/{{max_players}}</button>
-                        </a>
-                    </div>
-                {{else}}
-                    {{#if haveJoined}}
-                        <div class="pure-u-3-5">
-                            <a href="#/game/{{id}}">
-                                <button class="button-success pure-button addshadow pure-u-1">{{name}} {{players.length}}/{{max_players}}</button>
-                            </a>
-                        </div>
-                    {{/if}}
-                {{/if}}
+                <div class="pure-u-3-5">
+                    <a href="#/game/{{id}}">
+                        <button class="pure-button addshadow pure-u-1">{{name}} {{players.length}}/{{max_players}}</button>
+                    </a>
+                </div>
                 <div class="pure-u-1-5"></div>
             </div>
+            {{else}}
+                {{#if haveJoined}}
+                <div class="pure-g margin">
+                    <div class="pure-u-1-5"></div>
+                    <div class="pure-u-3-5">
+                        <a href="#/game/{{id}}">
+                            <button class="button-success pure-button addshadow pure-u-1">{{name}} {{players.length}}/{{max_players}}</button>
+                        </a>
+                    </div>
+                    <div class="pure-u-1-5"></div>
+                </div>
+                {{/if}}
+            {{/if}}
         {{/each}}
         <div class="pure-g margin">
             <div class="pure-u-1-5"></div>
