@@ -20,6 +20,7 @@ Sammy('#main', function() {
                     type: 'twilight',
                     canVote: false
                 };
+                this.partial('templates/game.hb');
             } else {
                 zis.gameStarted = true;
                 $.getJSON("/rounds/" + zis.currentRound.id).then(function (data) {
