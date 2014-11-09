@@ -3,6 +3,8 @@ class Round < ActiveRecord::Base
   belongs_to :game
   has_many :votings
 
+  scope :active, -> { where(active: true) }
+
   def next
     game.rounds.where('deadline > ?', self.deadline).first
   end
