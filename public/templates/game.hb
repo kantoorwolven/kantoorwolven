@@ -13,7 +13,7 @@
     </div>
     <div class="pure-g first"></div>      
         {{#with currentRound}}
-            {{#if ../canVote}}
+            {{#if canVote}}
                 {{#each votees}}
                 <div class="pure-g margin">
                     <div class="pure-u-1-5"></div>  
@@ -30,6 +30,11 @@
                 </div>    
                 {{/each}}
             {{/if}}
+            <div class="pure-u-1-5"></div>  
+            <div class="pure-u-3-5">
+            Je bent een {{playerType}}.... shhhh.
+            </div>
+            <div class="pure-u-1-5"></div>
             <div class="pure-u-1-5"></div>  
             <div class="pure-u-3-5">
             Nog {{deadline}} seconden..
