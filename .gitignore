@@ -39,3 +39,4 @@ log/*
 /config/secrets.yml
 /public/bower_components
 node_modules/
+/.cap_tasks~
