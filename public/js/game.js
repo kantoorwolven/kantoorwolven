@@ -15,13 +15,14 @@ Sammy('#main', function() {
             })[0];
             
             if (!zis.currentRound) {
+                
                 zis.gameStarted = false;
                 zis.currentRound = {
                     type: 'twilight',
                     canVote: false
                 };
                 zis.nightOrDay = zis.currentRound.type.toLowerCase();
-                $.getJSON("/games/" + zis.currentRound.game_id  + "/player?email=" + player.email).then(function() {
+                $.getJSON("/games/" + data.id + "/player?email=" + player.email).then(function() {
                     zis.playerType = data.type == "Villager" ? "dorpeling" : "weerwolf";
                     zis.partial('templates/game.hb');    
                 });
