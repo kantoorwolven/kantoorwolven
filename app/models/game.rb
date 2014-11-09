@@ -5,6 +5,16 @@ class Game < ActiveRecord::Base
   has_many :werewolves
   has_many :villagers
 
+  def self.close_rounds
+    Game.all.each do |game|
+      game.rounds.active.each do |round|
+        next if Time.zone.now < round.deadline
+        round.inactivate!
+        round.next.activate! if round.next
+      end
+    end
+  end
+
   def self.build_rounds
     Game.all.each do |game|
       next if game.rounds.any?
