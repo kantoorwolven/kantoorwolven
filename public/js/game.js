@@ -19,7 +19,7 @@ Sammy('#main', function() {
                 zis.isNight = data.type == "Night";
                 return;
             }).then(function() {         
-                return $.getJSON("/player?email=" + player.email);
+                return $.getJSON("/games/" + zis.currentRound.game_id  + "/player?email=" + player.email);
             }).then(function(data){ 
                 zis.playerType = data.type == "Villager" ? "dorpeling" : "weerwolf";
                 zis.canVote = (data.type == "Werewolf" && zis.currentRound.type == "Night") || zis.currentRound.type == "Day";
@@ -65,8 +65,8 @@ Sammy('#main', function() {
                     data: JSON.stringify(player),
                     dataType: 'json',
                     contentType: 'application/json'
-                }).then(function() { 
-                    return data.players.push(player); 
+                }).then(function(newPlayer) { 
+                    return data.players.push(newPlayer); 
                 }, function() {
                     zis.message = "Cannot join game";
                     return;

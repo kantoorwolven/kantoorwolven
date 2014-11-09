@@ -1,8 +1,8 @@
 <div class="{{nightOrDay}}">
     <div class="pure-g">
-        <div class="pure-u-1-5"></div>
+        <div class="pure-u-1-5"><img src="/img/{{playerType}}.png"/></div>
         <div class="pure-u-3-5"><h1>Game: "{{name}}"</h1></div>
-        <div class="pure-u-1-5"></div>
+        <div class="pure-u-1-5"><a href="#/pick_game"><img src="/img/terug.png"/></a></div>
     </div>
     <div class="pure-g margin">
         {{#if message}}
