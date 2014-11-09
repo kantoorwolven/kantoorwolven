@@ -13,13 +13,13 @@
     </div>
     <div class="pure-g first"></div>      
         {{#with currentRound}}
-            {{#if canVote}}
+            {{#if ../canVote}}
                 {{#each votees}}
                 <div class="pure-g margin">
                     <div class="pure-u-1-5"></div>  
                     <div class="pure-u-3-5">
                     <form action="#/vote" method="post">
-                        <input type="hidden" value="{{../../id}}" name="game_id"/>
+                        <input type="hidden" value="{{../game_id}}" name="game_id"/>
                         <input type="hidden" value="{{../id}}" name="round_id"/>
                         <input type="hidden" value="{{../../../player_id}}" name="player_id"/>
                         <input type="hidden" value="{{id}}" name="voted_id"/>

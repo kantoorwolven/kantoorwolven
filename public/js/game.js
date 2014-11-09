@@ -24,15 +24,26 @@ Sammy('#main', function() {
                 zis.playerType = data.type == "Villager" ? "dorpeling" : "weerwolf";
                 zis.canVote = (data.type == "Werewolf" && zis.currentRound.type == "Night") || zis.currentRound.type == "Day";
                 return;
-            }).then(function() {          
+            }).then(function() {
+                return $.getJSON("/games/" + zis.currentRound.game_id + "/rounds/" + zis.currentRound.id + "/votings");
+            }).then(function(votes) {
+                zis.votes = votes;
+                return zis.isNight ? $.getJSON("/games/" + zis.currentRound.game_id + "/villagers") : [];
+            }).then(function(villagers) {          
                 if (zis.canVote) {
                     if (zis.isNight) {
-                        
+                        zis.currentRound.votees = villagers.map(function (v){
+                            return {
+                                name: v.name,
+                                votes: zis.votes.filter(function(vote) { return vote.voted_id == v.id; }).length,
+                                id: v.id
+                            };
+                        });
                     } else {
                         zis.currentRound.votees = zis.currentRound.players.map(function(p) {
                             return {
                                 name: p.name,
-                                votes: Math.random(),
+                                votes: zis.votes.filter(function(vote) { return vote.voted_id == p.id; }).length,
                                 id: p.id
                             };
                         });

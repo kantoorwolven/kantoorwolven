@@ -1,13 +1,25 @@
 .night {
     background-image: url("/img/BGNight.png");
-    height: 568px;
+    background-repeat: no-repeat;
+    min-height: 568px;
     width: 320px;
+    background-color: #12170F;
 }
 
 .twilight {
     background-image: url("/img/SchemerBG.png");
-    height: 568px;
+    background-repeat: no-repeat;
+    min-height: 568px;
     width: 320px;
+    background-color: #182617;
+}
+
+.day {
+    background-image: url("/img/OverdagBG.png");
+    background-repeat: no-repeat;
+    min-height: 568px;
+    width: 320px;
+    background-color: #3B4C37;
 }
 
 h1 {
