@@ -2,6 +2,8 @@ class Game < ActiveRecord::Base
   # Associations
   has_many :rounds
   has_many :players
+  has_many :werewolves
+  has_many :villagers
 
   def self.build_rounds
     Game.all.each do |game|
