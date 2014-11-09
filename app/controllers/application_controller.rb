@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :build_rounds
+  before_filter :activate_rounds
   before_filter :close_rounds
 
   before_filter :cors_preflight_check
@@ -38,6 +39,10 @@ class ApplicationController < ActionController::Base
 
   def build_rounds
     Game.build_rounds
+  end
+
+  def activate_rounds
+    Game.activate_rounds
   end
 
   def close_rounds
