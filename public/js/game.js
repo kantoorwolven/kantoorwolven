@@ -16,26 +16,32 @@ Sammy('#main', function() {
             
             $.getJSON("/rounds/" + zis.currentRound.id).then(function (data) {
                 zis.currentRound.type = data.type;
+                zis.isNight = data.type == "Night";
                 return;
             }).then(function() {         
                 return $.getJSON("/player?email=" + player.email);
             }).then(function(data){ 
                 zis.playerType = data.type == "Villager" ? "dorpeling" : "weerwolf";
-                zis.canVote = (data.type == "Wherewolf" && zis.currentRound.type == "Night") || zis.currentRound.type == "Day";
+                zis.canVote = (data.type == "Werewolf" && zis.currentRound.type == "Night") || zis.currentRound.type == "Day";
                 return;
             }).then(function() {          
                 if (zis.canVote) {
-                    
-                    zis.currentRound.votees = 
-                    [
-                        { name: "Piet", votes: 10, game_id: data.id, id: 2 },
-                        { name: "Piet", votes: 10, game_id: data.id, id: 2 }
-                    ];
+                    if (zis.isNight) {
+                        
+                    } else {
+                        zis.currentRound.votees = zis.currentRound.players.map(function(p) {
+                            return {
+                                name: p.name,
+                                votes: Math.random(),
+                                id: p.id
+                            };
+                        });
+                    }
                 }
                 
                 zis.deadline = parseInt((Date.parse(zis.currentRound.deadline) - new Date().getTime()) / 1000);
                 zis.nightOrDay = zis.currentRound.type.toLowerCase();
-                zis.isNight = zis.currentRound.type == "Night";
+
                 zis.partial('templates/game.hb');
             });
         };
