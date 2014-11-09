@@ -20,7 +20,7 @@ Sammy('#main', function() {
             }).then(function() {         
                 return $.getJSON("/player?email=" + player.email);
             }).then(function(data){ 
-                zis.playerType = data.type;
+                zis.playerType = data.type == "Villager" ? "dorpeling" : "weerwolf";
                 zis.canVote = (data.type == "Wherewolf" && zis.currentRound.type == "Night") || zis.currentRound.type == "Day";
                 return;
             }).then(function() {          
@@ -33,8 +33,9 @@ Sammy('#main', function() {
                     ];
                 }
                 
-                zis.deadline = (Date.parse(data.deadline).getTime() - new Date().getTime())/1000;
+                zis.deadline = parseInt((Date.parse(zis.currentRound.deadline) - new Date().getTime()) / 1000);
                 zis.nightOrDay = zis.currentRound.type.toLowerCase();
+                zis.isNight = zis.currentRound.type == "Night";
                 zis.partial('templates/game.hb');
             });
         };

@@ -30,16 +30,26 @@
                 </div>    
                 {{/each}}
             {{/if}}
+        {{/with}}
+        <div class="pure-g margin">
             <div class="pure-u-1-5"></div>  
             <div class="pure-u-3-5">
             Je bent een {{playerType}}.... shhhh.
             </div>
             <div class="pure-u-1-5"></div>
+        </div>
+
+        <div class="pure-g margin">
             <div class="pure-u-1-5"></div>  
             <div class="pure-u-3-5">
-            Nog {{deadline}} seconden..
+            Nog {{deadline}} seconden tot 
+            {{#if isNight}}
+                de dag aan breekt.
+            {{else}}
+                de de zon ondergaat.
+            {{/if}}
             </div>
             <div class="pure-u-1-5"></div>
-        {{/with}}
+        </div>
     </div>
 </div>
