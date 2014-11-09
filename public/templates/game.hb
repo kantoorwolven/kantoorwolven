@@ -31,6 +31,11 @@
                 {{/each}}
             {{/if}}
         {{/with}}
+        {{#unless gameStarted}}
+            <div class="pure-u-1-5"></div>
+            <div class="pure-u-3-5"><h1>Het spel is nog niet begonnen.</h1></div>
+            <div class="pure-u-1-5"></div>
+        {{/unless}}
         <div class="pure-g margin">
             <div class="pure-u-1-5"></div>  
             <div class="pure-u-3-5">
@@ -38,7 +43,6 @@
             </div>
             <div class="pure-u-1-5"></div>
         </div>
-
         <div class="pure-g margin">
             <div class="pure-u-1-5"></div>  
             <div class="pure-u-3-5">

@@ -5,7 +5,7 @@ Sammy('#main', function() {
     
         $.getJSON("/games.json", function(games){
             zis.games = games.map(function(g) {
-                g.canJoin = g.players.length < g.max_players;
+                g.canJoin = g.players.length < g.max_players && Date.parse(g.starttime) > new Date().getTime();
                 g.haveJoined = g.players.some(function(p) {
                     return curPlayer.email == p.email;
                 });
