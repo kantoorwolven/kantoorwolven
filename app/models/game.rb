@@ -45,7 +45,7 @@ class Game < ActiveRecord::Base
       type   = round.even? ? 'Night' : 'Day'
       time   = Time.new(now.year, now.month, day, hour, minute, 0)
       time   = time + 1.day if round.odd?
-      self.rounds.create! deadline: time, active: round == 0, type: type
+      self.rounds.create! deadline: time, active: false, type: type
     end
   end
 end
