@@ -13,7 +13,7 @@
                 <div class="pure-u-1-5"></div>
                 <div class="pure-u-3-5">
                         <label for="name">Naam</label>
-                        <input id="name" type="text" placeholder="Naam" name="name">
+                        <input id="name" type="text" maxlength=10 placeholder="Naam" name="name">
                     
                 </div>
                 <div class="pure-u-1-5"></div>
@@ -23,7 +23,7 @@
                 <div class="pure-u-1-5"></div>
                 <div class="pure-u-3-5">
                     <label for="player_number">Aantal spelers</label>
-                    <input id="player_number" type="number" placeholder="Aantal spelers" name="player_number">
+                    <input id="player_number" type="number" placeholder="Aantal spelers" min=8 max=100 name="player_number">
                 </div>
                 <div class="pure-u-1-5"></div>
             </div>

@@ -32,28 +32,44 @@
             {{/if}}
         {{/with}}
         {{#unless gameStarted}}
-            <div class="pure-u-1-5"></div>
-            <div class="pure-u-3-5"><h1>Het spel is nog niet begonnen.</h1></div>
-            <div class="pure-u-1-5"></div>
+            <div class="pure-g margin">
+                <div class="pure-u-1-5"></div>
+                <div class="pure-u-3-5"><h1>Het spel is nog niet begonnen.</h1></div>
+                <div class="pure-u-1-5"></div>
+            </div>
+            <div class="pure-g margin">
+                <div class="pure-u-1-5"></div>  
+                <div class="pure-u-3-5">
+                Je bent een {{playerType}}.... shhhh.
+                </div>
+                <div class="pure-u-1-5"></div>
+            </div>
+            <div class="pure-g margin">
+                <div class="pure-u-1-5"></div>  
+                <div class="pure-u-3-5">
+                Om {{starttime}} begint het spel!
+                <div class="pure-u-1-5"></div>
+            </div>
+        {{else}}
+            <div class="pure-g margin">
+                <div class="pure-u-1-5"></div>  
+                <div class="pure-u-3-5">
+                Je bent een {{playerType}}.... shhhh.
+                </div>
+                <div class="pure-u-1-5"></div>
+            </div>
+            <div class="pure-g margin">
+                <div class="pure-u-1-5"></div>  
+                <div class="pure-u-3-5">
+                Nog {{deadline}} seconden tot 
+                {{#if isNight}}
+                    de dag aan breekt.
+                {{else}}
+                    de de zon ondergaat.
+                {{/if}}
+                </div>
+                <div class="pure-u-1-5"></div>
+            </div>
         {{/unless}}
-        <div class="pure-g margin">
-            <div class="pure-u-1-5"></div>  
-            <div class="pure-u-3-5">
-            Je bent een {{playerType}}.... shhhh.
-            </div>
-            <div class="pure-u-1-5"></div>
-        </div>
-        <div class="pure-g margin">
-            <div class="pure-u-1-5"></div>  
-            <div class="pure-u-3-5">
-            Nog {{deadline}} seconden tot 
-            {{#if isNight}}
-                de dag aan breekt.
-            {{else}}
-                de de zon ondergaat.
-            {{/if}}
-            </div>
-            <div class="pure-u-1-5"></div>
-        </div>
     </div>
 </div>

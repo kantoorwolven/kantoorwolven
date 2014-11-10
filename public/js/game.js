@@ -5,6 +5,7 @@ Sammy('#main', function() {
         var draw = function (data) {
             zis.name = data.name;
             zis.players = data.players;
+            zis.starttime = new Date(Date.parse(data.starttime)).toTimeString();
             
             zis.player_id = zis.players.filter(function(p) {
                 return p.email == player.email;
@@ -15,15 +16,14 @@ Sammy('#main', function() {
             })[0];
             
             if (!zis.currentRound) {
-                
                 zis.gameStarted = false;
                 zis.currentRound = {
                     type: 'twilight',
                     canVote: false
                 };
                 zis.nightOrDay = zis.currentRound.type.toLowerCase();
-                $.getJSON("/games/" + data.id + "/player?email=" + player.email).then(function() {
-                    zis.playerType = data.type == "Villager" ? "dorpeling" : "weerwolf";
+                $.getJSON("/games/" + data.id + "/player?email=" + player.email).then(function(player) {
+                    zis.playerType = player.type == "Villager" ? "dorpeling" : "weerwolf";
                     zis.partial('templates/game.hb');    
                 });
             } else {
