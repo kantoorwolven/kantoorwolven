@@ -36,6 +36,7 @@
                 <div class="pure-u-1-5"></div>  
                 <div class="pure-u-3-5">
                 Om {{starttime}} begint het spel!
+                </div>
                 <div class="pure-u-1-5"></div>
             </div>
         {{else}}
