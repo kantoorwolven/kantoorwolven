@@ -10,6 +10,7 @@ class Game < ActiveRecord::Base
       next if game.rounds.active.any?
       next if game.players.size < 8
       if Time.zone.now > game.starttime
+        puts game.rounds.inspect
         game.rounds.first.activate!
       end
     end
@@ -20,6 +21,7 @@ class Game < ActiveRecord::Base
       next if game.players.size < 8
       game.rounds.active.each do |round|
         next if Time.zone.now < round.deadline
+        puts game.rounds.inspect
         round.inactivate!
         round.next.activate! if round.next
       end
