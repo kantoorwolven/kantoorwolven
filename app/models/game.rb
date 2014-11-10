@@ -7,16 +7,17 @@ class Game < ActiveRecord::Base
 
   def self.activate_rounds
     Game.all.each do |game|
-      if game.rounds.active.empty?
-        if Time.zone.now > game.starttime
-          game.rounds.first.activate!
-        end
+      next if game.rounds.active.any?
+      next if game.players.size < 8
+      if Time.zone.now > game.starttime
+        game.rounds.first.activate!
       end
     end
   end
 
   def self.close_rounds
     Game.all.each do |game|
+      next if game.players.size < 8
       game.rounds.active.each do |round|
         next if Time.zone.now < round.deadline
         round.inactivate!
